@@ -1,0 +1,35 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+#          uri: git@github.com:Minidwep/springcloud-config.git
+          uri: https://github.com/Minidwep/springcloud-config
+#          username: 943490180@qq.com
+#          password: 533618Wgr
+          search-paths:
+            - springcloud-config
+          lable: master
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+
+#暴露监控端点 暴露bus刷新
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"
+

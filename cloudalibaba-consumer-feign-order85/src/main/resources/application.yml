@@ -1,0 +1,20 @@
+server:
+  port: 85
+
+spring:
+  application:
+    name: feign-order-consumer
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 39.96.72.169:1111
+    sentinel:
+      transport:
+        dashboard: localhost:8080
+        port: 8719
+server-url:
+  nacos-user-service: http://nacos-payment-provider
+
+feign:
+  sentinel:
+    enabled: true
